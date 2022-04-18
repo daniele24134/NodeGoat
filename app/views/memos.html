@@ -13,25 +13,25 @@
             <div class="panel-body">
 
                 <form action="/memos" method="post" role="search">
-                    <input type="hidden" name="_csrf" value="{{ csrftoken }}" <div class="form-group">
-                    <textarea class="form-control" name="memo"></textarea>
-                    <p class="help-block">You may use Markdown syntax to format your memo</p>
+                    <input type="hidden" name="_csrf" value="{{ csrftoken }}"></input>
+                    <div class="form-group">
+                        <textarea class="form-control" name="memo"></textarea>
+                        <p class="help-block">You may use Markdown syntax to format your memo</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-
         </div>
-    </div>
 
-    {% for doc in memosList %}
-    <div class="panel panel-info">
-        <div class="panel-body">
-            {{ marked(doc.memo) }}
+        {% for doc in memosList %}
+        <div class="panel panel-info">
+            <div class="panel-body">
+                {{ marked(doc.memo) }}
+            </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
 
-</div>
+    </div>
 </div>
 {% endblock %}
